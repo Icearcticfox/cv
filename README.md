@@ -13,4 +13,4 @@ docker run --rm -i -v "$PWD":/data latex pdflatex kirill_kashin_resume.tex
 
 ### License
 
-Format is MIT
+Format is MIT but all the data is owned by Kirill Kashin.
