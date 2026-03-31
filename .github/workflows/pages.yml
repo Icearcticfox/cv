@@ -1,0 +1,57 @@
+name: Deploy Resume Site
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Compile PDF from LaTeX
+        uses: addnab/docker-run-action@v3
+        with:
+          image: thomasweise/docker-texlive-full:latest
+          options: -v ${{ github.workspace }}:/data
+          run: |
+            cd /data
+            pdflatex -interaction=nonstopmode kirill_kashin_resume.tex
+
+      - name: Build Pages artifact
+        run: |
+          mkdir -p dist
+          cp site/index.html dist/index.html
+          cp site/CNAME dist/CNAME
+          cp kirill_kashin_resume.pdf dist/resume.pdf
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

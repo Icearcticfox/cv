@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2024 Sourabh Bajaj
+Copyright (c) 2024-2026 Kirill Kashin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,3 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+---
+
+This MIT license applies to template/layout code and build-related files in this repository, except where stated otherwise.
+Personal resume content and personal data are excluded and are licensed separately under LICENSE-CONTENT.

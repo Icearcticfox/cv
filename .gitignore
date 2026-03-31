@@ -1,5 +1,6 @@
 # Archieve
 Archieve/
+.DS_Store
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -18,3 +19,7 @@ Archieve/
 
 # github action result
 semicolon_delimited_script
+
+# local website build artifacts
+site/resume.pdf
+dist/
