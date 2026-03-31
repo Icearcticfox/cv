@@ -1,0 +1,69 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #212529;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.layout {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+/* Header */
+header {
+  padding: 16px 0 8px;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+nav a {
+  font-size: 0.95rem;
+  color: #1175e2;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a.active {
+  color: #212529;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nav-sep {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 8px 0 24px;
+}
+
+/* About content */
+main {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+p {
+  margin: 0 0 16px;
+}
+

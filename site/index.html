@@ -3,25 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kirill Kashin | Resume</title>
+    <title>Kirill Kashin</title>
     <link rel="canonical" href="https://kirillkashin.cv/" />
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        background: #1f1f1f;
-      }
-
-      iframe {
-        border: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-    </style>
+    <meta
+      name="description"
+      content="About Kirill Kashin, SRE Engineer. Resume available as PDF."
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <iframe title="Kirill Kashin Resume" src="./resume.pdf#toolbar=0&navpanes=0"></iframe>
+    <div class="layout">
+      <header>
+        <nav>
+          <a href="./" class="active">about me</a>
+          <span class="nav-sep">|</span>
+          <a href="./resume.html">resume</a>
+        </nav>
+      </header>
+      <hr />
+
+      <main>
+        <p>SRE Engineer based in Limassol, Cyprus.</p>
+        <p>
+          I build and scale reliable systems with a focus on observability,
+          incident reduction, and production readiness across distributed teams.
+        </p>
+      </main>
+    </div>
   </body>
 </html>

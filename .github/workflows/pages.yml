@@ -30,12 +30,23 @@ jobs:
             cd /data
             pdflatex -interaction=nonstopmode kirill_kashin_resume.tex
 
-      - name: Build Pages artifact
-        run: |
-          mkdir -p dist
-          cp site/index.html dist/index.html
-          cp site/CNAME dist/CNAME
-          cp kirill_kashin_resume.pdf dist/resume.pdf
+      - name: Copy PDF to site/public
+        run: cp kirill_kashin_resume.pdf site/public/resume.pdf
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate resume HTML and build site
+        run: npm run build
+
+      - name: Copy CNAME
+        run: cp site/CNAME dist/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

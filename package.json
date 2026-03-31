@@ -1,0 +1,17 @@
+{
+  "name": "cv",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate-resume.js",
+    "dev": "cp dist/resume.pdf site/public/resume.pdf 2>/dev/null; npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.0",
+    "computer-modern": "^0.1.3"
+  }
+}

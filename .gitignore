@@ -1,6 +1,7 @@
 # Archieve
 Archieve/
 .DS_Store
+.history/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
