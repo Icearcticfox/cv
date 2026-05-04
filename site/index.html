@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kirill Kashin</title>
     <link rel="canonical" href="https://kirillkashin.cv/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta
       name="description"
-      content="About Kirill Kashin, SRE Engineer. Resume available as PDF."
+      content="Kirill Kashin — SRE Engineer. Notes on a path from technical support through DevOps to SRE, ending with bare-metal observability work at Criteo."
     />
     <link rel="prefetch" href="/fonts/cmu-serif-500-roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="prefetch" href="/fonts/cmu-serif-700-roman.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,13 +26,53 @@
         </nav>
       </header>
       <hr />
+    </div>
 
+    <div class="layout layout-prose">
       <main>
-        <p>SRE Engineer based in Limassol, Cyprus.</p>
-        <p>
-          I build and scale reliable systems with a focus on observability,
-          incident reduction, and production readiness across distributed teams.
-        </p>
+        <p class="lede">SRE Engineer based in Limassol, Cyprus, currently on the Observability team at Criteo. My path went through technical support, DevOps, and an SRE transformation. Below is a longer story for anyone who wants context beyond the resume.</p>
+
+        <h2>Starting in support</h2>
+        <p>My most relevant experience starts in technical support at Tinkoff, where I worked as an incident manager — handling alerts, triaging customer-impacting issues, and shaping the response process. The team wasn't first or second line: most agents joining us came from those tiers, so we already knew how the call center actually worked. To stay close to it, we periodically went undercover and took an inbound shift ourselves.</p>
+        <p>The fastest way to drown a call center is a major incident with no playbook. We optimized for the opposite: monitor proactively, identify impact early, post a status note for first-line agents, notify engineering owners, set ETAs, revise them when we missed. Anything that could shave seconds off per-call handling time during a spike was worth doing. We also closed the loop with people who hit the issue but never opened a ticket — building lists from logs and pushing proactive SMS or email through internal tooling.</p>
+        <p>The work I'm proudest of from that period was less the firefighting and more the foundation: a knowledge base built from real cases, incident playbooks, and a two-week onboarding program with tests, video material, and incident-management drills. We grew the team from five people in office to thirty, mostly remote, with in-office leads supervising specialists. Once that machine could run without me, I had a choice: deepen as a manager, or pivot into engineering. I picked engineering.</p>
+
+        <h2>Going DevOps</h2>
+        <p>The next stop was the team running the in-house CRM platform — the system call-center operators used to do practically everything for a customer: reissue cards, transfer money, open products, run service requests. It integrated with the entire ecosystem (banking, insurance, investments, travel, ticketing, credit checks) and had to be rock-solid: when it was down, operators couldn't work.</p>
+        <p>The team and the system were both still young when I joined, which meant the architecture wasn't dragging legacy weight. The architect and the DevOps tech lead sat one desk over — I ended up across from them — and that proximity mattered. Product decisions and infrastructure decisions kept feeding each other.</p>
+
+        <h2>First incident</h2>
+        <p>My first real outage came fast, and I caused it. I was finishing a deploy late in the office — the canary process was finicky and often required hand-driven steps. After my last "verified twice" action, the dashboards lit up red. Errors everywhere. New version's fault.</p>
+        <p>I started the process: write to the incident channel with impact, page the tech lead (who'd left fifteen minutes earlier — fortunately he lived seven minutes away), pull logs while waiting. He rolled it back and we were green within minutes. It felt like ten; it was thirty-five. I remember it because it was the last time I was scared during an outage — every one after just felt like work.</p>
+
+        <h2>Migrating off Rancher</h2>
+        <p>Rancher v1's overlay network couldn't keep up with the container count. We piloted Kubernetes for a small front-end use case first: feature environments. Each developer branch needed its own deploy at a unique URL, with automated routing. I rewrote the deploy tool from scratch around Kubernetes primitives, with a Swagger spec, dynamic config, and multi-repo support.</p>
+        <p>It wasn't all clean. Garbage collection wasn't tight, so abandoned resources accumulated. Nodes occasionally died from running out of file descriptors and we'd manually drain and restart. But the bones worked, and once we proved feature stands, the broader Rancher → Kubernetes migration was a question of when, not if. That migration ran for over two years.</p>
+        <p>The interesting part of that platform was procedure routing: customer-facing flows (the kind where an operator walks a customer through fifteen minutes of options) had to land on the same instance for the duration. We did this with a routing tag — registered by each instance into service discovery and propagated through request headers; the load balancer honored it. That made the procedure subsystem horizontally scalable while keeping per-flow stickiness.</p>
+
+        <h2>TeamCity to GitLab</h2>
+        <p>The case for GitLab was equal parts cost and config-as-code ergonomics. TeamCity already had a Kotlin DSL, but visually it was heavy compared to GitLab's YAML. We started with low-stakes things — utility repos, Terraform jobs, Ansible plays — to learn GitLab CI on safe ground. Production migrations followed. Secrets started in GitLab variables and moved into Vault as soon as Vault became the company-wide standard.</p>
+
+        <h2>Logging realities</h2>
+        <p>Logging was the chronic constraint. The cluster was undersized for what hundreds of services pushed at it daily, and we compensated with quotas, log-level downgrades, and aggressive index lifecycle management. When the cluster went sideways, the buffering layer gave us breathing room, but draining it back into a recovering cluster took hours. The permanent fix wasn't more nodes — those were impossible to get — it was migrating logging out of our team's hands and into the company's unified logging platform. After that we stopped fighting disk I/O and started writing dashboards.</p>
+
+        <h2>Becoming SRE</h2>
+        <p>The transition from DevOps to SRE happened both bottom-up and top-down. Bottom-up: many of us had read the Google SRE book and were already running parts of it informally. Top-down: leadership hired an SRE-shaped lead from a company that had been doing it longer, and the team was reorganized — developers were added to the team itself to tighten the feedback loop with the codebase.</p>
+        <p>The visible changes were the formal ones: SLO/SLA/SLI definitions per service, postmortems for every user-impacting incident, a unified on-call channel, and a qualification test you had to pass before going on call. Behind those, the change was cultural: "is this incident worth a postmortem?" stopped being a question.</p>
+
+        <h2>Postmortems, and why I like them</h2>
+        <p>I like incidents, and I learned to like postmortems even more. A good postmortem is forensic work: timeline, impact, what we got right, what we got wrong, what we'll change. It's also the single most reliable way I've found to push improvements through. Without one, a fix lives or dies on whoever has the political capital to advocate for it. With one, the chain from problem to action item is on paper and everyone has read it.</p>
+        <p>We used a structure close to the SRE book's: owners, dates, impact (separating <em>severity</em> from <em>reach</em> — those are different axes, and conflating them is how you end up paging the world for a bad font), preconditions, timeline, mitigation, follow-ups. The "what went well / what didn't" sections were the most valuable for retros — closer to honest engineering self-reflection than any other artifact we wrote.</p>
+
+        <h2>Owning services</h2>
+        <p>By that point our SRE team owned things, not just operated them. We ran an internal access-control service that product teams integrated with — not a generic library, an actual service. We also published Java SDKs for logging, metrics, profiling, and Swagger so that "doing observability right" wasn't optional or per-team-DIY. That was probably the single most leveraged thing the team did: standardize the floor, not raise the ceiling.</p>
+
+        <h2>Now: Criteo and bare metal</h2>
+        <p>I joined Criteo on the Observability team, post-merger. The early work was integration-heavy: migrating fifty-plus teams off the legacy alerting stack, consolidating dozens of cron jobs into a single CLI app, building an SLO framework on top of an open-source tool and exposing it through a Kubernetes operator written in Go.</p>
+        <p>What's different here from before is the substrate: a lot of Criteo runs on bare metal, with Puppet for configuration. After cloud-native years, going back to caring about NIC interrupts and NUMA pinning is a different mental mode — and occasionally exactly the right one. Recently, for example, a multi-DC log pipeline started slowly collapsing under peak load on certain nodes; the interesting part wasn't a single broken parameter but that two unrelated issues only showed up together, and only on bare metal. Lowering some queue parallelism and rebalancing interrupts stabilized it. The takeaway was less the fix itself and more the workflow: always compare a problem node against a healthy baseline, not just against its own past.</p>
+
+        <h2>Closing</h2>
+        <p>I like the SRE space because the work that makes systems reliable is also, usually, the work that makes them comprehensible. Postmortems, observability, runbooks, capacity planning — they're all in service of the same thing: making it possible to reason about what production is doing right now. That's the part I keep coming back to.</p>
       </main>
     </div>
   </body>

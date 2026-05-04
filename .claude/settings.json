@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -c 230 280 /tmp/orig.png --out /tmp/cropped.png)",
+      "Bash(sips -Z 256 /tmp/cropped.png --out /Users/icefox/Repo/cv/site/public/favicon.png)"
+    ]
+  }
+}

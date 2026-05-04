@@ -1,0 +1,14 @@
+{
+  "name": "computer-modern",
+  "version": "0.1.3",
+  "author": "Steven Petryk (Computer Modern fonts by Donald Knuth)",
+  "description": "An NPM package containing the OFL-licensed Computer Modern fonts, and CSS @font-face declarations for them.",
+  "license": "MIT",
+  "repository": "https://github.com/stevenpetryk/computer-modern",
+  "keywords": [
+    "font",
+    "font family",
+    "computer modern",
+    "latex"
+  ]
+}

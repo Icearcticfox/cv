@@ -212,6 +212,7 @@ const html = `<!doctype html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${header.name} — Resume</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preload" href="/fonts/cmu-serif-500-roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/cmu-serif-700-roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="./style.css" />

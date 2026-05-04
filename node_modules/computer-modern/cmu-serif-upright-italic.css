@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "CMU Serif Upright Italic";
+  font-style: roman;
+  font-weight: 500;
+  src: url("./fonts/cmu-serif-upright-italic-500-roman.woff2") format("woff2"), url("./fonts/cmu-serif-upright-italic-500-roman.ttf") format("truetype");
+}

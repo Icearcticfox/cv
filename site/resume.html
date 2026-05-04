@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kirill Kashin — Resume</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preload" href="/fonts/cmu-serif-500-roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/cmu-serif-700-roman.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="./style.css" />
@@ -35,7 +36,7 @@
     
     <div class="entry">
       <div class="entry-row">
-        <strong>SRE Engineer</strong>
+        <strong>SRE Engineer – Observability</strong>
         <span>August 2023 – Present</span>
       </div>
       <div class="entry-row entry-sub">
@@ -44,47 +45,48 @@
       </div>
       <ul><li>As part of the observability team, led the migration and consolidation of infrastructure during the merger of two companies. Successfully migrated over 50 teams and 600 alerts per hour from Zabbix, unifying the codebase, monitoring tools, and alerting system.</li>
 <li>Designed and implemented a CLI application to consolidate over 30 cron jobs, standardize the codebase, migrate secrets to Vault, and integrate with Kubernetes using vault-secrets-webhook for secure secret management.</li>
-<li>Developed an SLO framework using the Sloth tool, integrated with a Kubernetes operator built on the CRD SDK in Go, to efficiently manage vmalerts instances.</li></ul>
+<li>Developed an SLO framework using the Sloth tool, integrated with a Kubernetes operator built on the CRD SDK in Go, to efficiently manage vmalerts instances.</li>
+<li>Resolved an rsyslog throughput collapse on a bare-metal multi-DC log pipeline by diagnosing uneven NIC IRQ distribution and queue-parallelism-induced memory pressure (perf top showing page-fault dominance), then retuning imptcp and queue dequeue parameters.</li></ul>
     </div>
 
     <div class="entry">
       <div class="entry-row">
-        <strong>SRE Engineer</strong>
-        <span>May 2022 – Aug. 2023</span>
+        <strong>SRE Engineer – TCRM Platform</strong>
+        <span>Jul 2021 – Aug. 2023</span>
       </div>
       <div class="entry-row entry-sub">
         <em>Tinkoff</em>
         <em>Moscow</em>
       </div>
-      <ul><li>Migrated more than 30 Java services of the TCRM product to Kubernetes (K8s), adapting canary deployment. Assisted in transitioning more than 15 Python services for the T-Messenger product to Kubernetes (K8s) and GCE, implementing blue-green deployments.</li>
-<li>Implemented SLA standards by reconfiguring the monitoring system to align with new service levels, achieving compliance at 99.9% and 99.95% levels, focusing on service-specific metrics. Managed the migration of the monitoring stack from self-hosted ELK/Prometheus to the Sage platform.</li>
-<li>Developed and maintained a load-balancing system using Envoy, enabling seamless configuration updates and effective traffic management for several hundred thousand RPS. Provided SDKs for Java apps, for ACL, Logging, Metrics, Profiling, and Swagger.</li></ul>
+      <ul><li>Migrated more than 30 Java services of the TCRM product to Kubernetes, adapting canary deployment. Assisted in transitioning more than 15 Python services for the T-Messenger product to Kubernetes and GCE, implementing blue-green deployments.</li>
+<li>Defined SLAs and reconfigured monitoring around service-specific metrics, achieving 99.9% and 99.95% compliance. Migrated the logging stack from self-hosted ELK/Prometheus to the Sage platform. Established postmortems for user-impacting incidents and gated on-call rotation behind a qualification test.</li>
+<li>Built and maintained an Envoy-based load balancer with control-plane reconfiguration at hundreds of thousands of RPS; shipped Java SDKs for ACL, logging, metrics, profiling, and Swagger.</li></ul>
     </div>
 
     <div class="entry">
       <div class="entry-row">
-        <strong>DevOps/SRE Engineer</strong>
+        <strong>DevOps Engineer – TCRM Platform</strong>
         <span>Jul 2019 – Jun 2021</span>
       </div>
       <div class="entry-row entry-sub">
         <em>Tinkoff</em>
         <em>Moscow</em>
       </div>
-      <ul><li>Participated in the migration from TeamCity and Bitbucket to GitLab, contributing to a smoother transition. Helped scale service load by over tenfold. Prepared the migration plan from Rancher to Kubernetes (K8s).</li>
+      <ul><li>Participated in the migration from TeamCity and Bitbucket to GitLab, contributing to a smoother transition. Helped scale service load by over tenfold. Prepared the migration plan from Rancher to Kubernetes.</li>
 <li>Optimized the team’s codebase into a unified CLI tool, streamlining pipeline operations. Established a repository service with configuration files for over 30 services, simplifying deployments.</li>
 <li>Designed and implemented a canary release tool, enabling gradual application rollouts, partial traffic switching, real-time error monitoring, and automated rollback in case of alerts. This resulted in a 90% reduction in incidents caused by issues in new releases.</li></ul>
     </div>
 
     <div class="entry">
       <div class="entry-row">
-        <strong>Tecnical Support Team Lead</strong>
+        <strong>Technical Support Team Lead</strong>
         <span>May 2017 – Jul 2019</span>
       </div>
       <div class="entry-row entry-sub">
         <em>Tinkoff</em>
         <em>Moscow</em>
       </div>
-      <ul><li>Technical support / Incident manager and team lead of 15 people, we are supported by the bank site, mobile apps and payment services.</li></ul>
+      <ul><li>Led a 24/7 incident-management team supporting the bank's website, mobile apps, and payment services; scaled the team from 5 to 30 across in-office and distributed tiers; built the knowledge base, incident playbooks, and a two-week onboarding program (tests, video, real cases) that brought 20+ engineers to operational level.</li></ul>
     </div>
   </section>
 
@@ -107,12 +109,14 @@
   <section>
     <h2>Core Skills</h2>
     <div class="skills">
-      <p><strong>Languages:</strong> Python, Java</p>
+      <p><strong>Languages:</strong> Python, Java, Go</p>
 <p><strong>Monitoring:</strong> Prometheus, VictoriaMetrics, Grafana, ELK, Loki, OpenTelemetry, Jaeger</p>
 <p><strong>Automation/Scripting:</strong> Bash, Jinja2, Jsonnet, Makefiles</p>
 <p><strong>CI/CD:</strong> GitLab, TeamCity, Jenkins</p>
 <p><strong>Containers/Orchestration:</strong> Docker, Docker Compose, containerd, Kubernetes, Helm, Kustomize</p>
-<p><strong>Infrastructure:</strong> Ansible, Terraform, Puppet</p>
+<p><strong>Cloud Platforms:</strong> Google Cloud, OpenStack</p>
+<p><strong>Databases/Messaging:</strong> Cassandra, RabbitMQ</p>
+<p><strong>Infrastructure:</strong> Ansible, Terraform, Puppet, Vault</p>
 <p><strong>Load Balancing/Networking:</strong> HAProxy, Nginx, Envoy, Istio</p>
 <p><strong>Practices:</strong> Incident/Alert management, Postmortems, IAC, SLO/SLI Metrics Design, Capacity Planning</p>
     </div>

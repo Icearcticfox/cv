@@ -67,3 +67,40 @@ p {
   margin: 0 0 16px;
 }
 
+main .lede {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+}
+
+main h2 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 32px 0 8px;
+  color: #111;
+}
+
+main h3 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 20px 0 6px;
+  color: #333;
+}
+
+main code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #1a1a1a;
+}
+
+/* Wider layout for prose pages — resume is unaffected */
+.layout-prose {
+  max-width: 42rem;
+}
+

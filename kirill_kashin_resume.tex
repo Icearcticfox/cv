@@ -127,12 +127,13 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {SRE Engineer}{August 2023 -- Present}
+      {SRE Engineer -- Observability}{August 2023 -- Present}
       {Criteo}{Limassol, Cyprus}
       \resumeItemListStart
         \resumeItem{As part of the observability team, led the migration and consolidation of infrastructure during the merger of two companies. Successfully migrated over 50 teams and 600 alerts per hour from Zabbix, unifying the codebase, monitoring tools, and alerting system.}
         \resumeItem{Designed and implemented a CLI application to consolidate over 30 cron jobs, standardize the codebase, migrate secrets to Vault, and integrate with Kubernetes using vault-secrets-webhook for secure secret management.}
         \resumeItem{Developed an SLO framework using the Sloth tool, integrated with a Kubernetes operator built on the CRD SDK in Go, to efficiently manage vmalerts instances.}
+        \resumeItem{Resolved an rsyslog throughput collapse on a bare-metal multi-DC log pipeline by diagnosing uneven NIC IRQ distribution and queue-parallelism-induced memory pressure (perf top showing page-fault dominance), then retuning imptcp and queue dequeue parameters.}
         % \resumeItem{As part of the Observability team, I am responsible for setting up and maintaining the companys entire monitoring system based on Prometheus, VictoriaMetrics, OpenSearch, OpenTelemetry, Grafana, Tempo.}
         % \resumeItem{Responsible for supporting and providing SDKs for C\#, Python, and Scala/Java applications.}
       \resumeItemListEnd
@@ -148,12 +149,12 @@
 %-------------------------------------------
 
     \resumeSubheading
-      {SRE Engineer}{May 2022 -- Aug. 2023}
+      {SRE Engineer -- TCRM Platform}{Jul 2021 -- Aug. 2023}
       {Tinkoff}{Moscow}
       \resumeItemListStart
-        \resumeItem{Migrated more than 30 Java services of the TCRM product to Kubernetes (K8s), adapting canary deployment. Assisted in transitioning more than 15 Python services for the T-Messenger product to Kubernetes (K8s) and GCE, implementing blue-green deployments.}
-        \resumeItem{Implemented SLA standards by reconfiguring the monitoring system to align with new service levels, achieving compliance at 99.9\% and 99.95\% levels, focusing on service-specific metrics. Managed the migration of the monitoring stack from self-hosted ELK/Prometheus to the Sage platform.}
-        \resumeItem{Developed and maintained a load-balancing system using Envoy, enabling seamless configuration updates and effective traffic management for several hundred thousand RPS. Provided SDKs for Java apps, for ACL, Logging, Metrics, Profiling, and Swagger.}
+        \resumeItem{Migrated more than 30 Java services of the TCRM product to Kubernetes, adapting canary deployment. Assisted in transitioning more than 15 Python services for the T-Messenger product to Kubernetes and GCE, implementing blue-green deployments.}
+        \resumeItem{Defined SLAs and reconfigured monitoring around service-specific metrics, achieving 99.9\% and 99.95\% compliance. Migrated the logging stack from self-hosted ELK/Prometheus to the Sage platform. Established postmortems for user-impacting incidents and gated on-call rotation behind a qualification test.}
+        \resumeItem{Built and maintained an Envoy-based load balancer with control-plane reconfiguration at hundreds of thousands of RPS; shipped Java SDKs for ACL, logging, metrics, profiling, and Swagger.}
         % \resumeItem{Completed the migration to Kubernetes (K8s) for the Java services of the TCRM product and adapted the canary deploy.}
         % \resumeItem{Migrated Python services of the T-Messenger product to Kubernetes (K8s) and adapted the blue-green deploy.}
         % \resumeItem{Implemented SLA and reoriented the monitoring system to align with the new service levels, replacing impersonal infrastructure metrics.}
@@ -162,10 +163,10 @@
         % \resumeItem{Provided clients with a set of SDKs for ACL, Logging, Metrics, Profiling, and Swagger.}
     \resumeItemListEnd
     \resumeSubheading
-      {DevOps/SRE Engineer}{Jul 2019 -- Jun 2021}
+      {DevOps Engineer -- TCRM Platform}{Jul 2019 -- Jun 2021}
       {Tinkoff}{Moscow}
       \resumeItemListStart
-        \resumeItem{Participated in the migration from TeamCity and Bitbucket to GitLab, contributing to a smoother transition. Helped scale service load by over tenfold. Prepared the migration plan from Rancher to Kubernetes (K8s).}
+        \resumeItem{Participated in the migration from TeamCity and Bitbucket to GitLab, contributing to a smoother transition. Helped scale service load by over tenfold. Prepared the migration plan from Rancher to Kubernetes.}
         \resumeItem{Optimized the team’s codebase into a unified CLI tool, streamlining pipeline operations. Established a repository service with configuration files for over 30 services, simplifying deployments.}
         % \resumeItem{Migrated from TeamCity and Bitbucket to GitLab.}
         % \resumeItem{Scaled service load by more than 10 times.}
@@ -176,10 +177,10 @@
         % \resumeItem{Maintained a self-hosted monitoring stack using ELK, Prometheus, and Zipkin.}
     \resumeItemListEnd
     \resumeSubheading
-      {Tecnical Support Team Lead}{May 2017 -- Jul 2019}
+      {Technical Support Team Lead}{May 2017 -- Jul 2019}
       {Tinkoff}{Moscow}
       \resumeItemListStart
-        \resumeItem{Technical support / Incident manager and team lead of 15 people, we are supported by the bank site, mobile apps and payment services.}
+        \resumeItem{Led a 24/7 incident-management team supporting the bank's website, mobile apps, and payment services; scaled the team from 5 to 30 across in-office and distributed tiers; built the knowledge base, incident playbooks, and a two-week onboarding program (tests, video, real cases) that brought 20+ engineers to operational level.}
         % \resumeItem{Established a unified documentation database and regular update practices, improving information accuracy and accessibility. Organized the incident escalation process, reducing the time to begin resolving issues and notifying users of incidents to 5 minutes. Developed a training program for onboarding new employees, helping them integrate more efficiently into the team.}
         % \resumeItem{Created a unified documentation database and established the practice of regular updates.}
         % \resumeItem{Organized the incident escalation process.}
@@ -234,12 +235,14 @@
 \section{Core Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Python, Java} \\
+     \textbf{Languages}{: Python, Java, Go} \\
      \textbf{Monitoring}{: Prometheus, VictoriaMetrics, Grafana, ELK, Loki, OpenTelemetry, Jaeger} \\
      \textbf{Automation/Scripting}{: Bash, Jinja2, Jsonnet, Makefiles} \\
      \textbf{CI/CD}{: GitLab, TeamCity, Jenkins} \\
      \textbf{Containers/Orchestration}{: Docker, Docker Compose, containerd, Kubernetes, Helm, Kustomize} \\
-     \textbf{Infrastructure}{: Ansible, Terraform, Puppet} \\
+     \textbf{Cloud Platforms}{: Google Cloud, OpenStack} \\
+     \textbf{Databases/Messaging}{: Cassandra, RabbitMQ} \\
+     \textbf{Infrastructure}{: Ansible, Terraform, Puppet, Vault} \\
      \textbf{Load Balancing/Networking}{: HAProxy, Nginx, Envoy, Istio} \\
      \textbf{Practices}{: Incident/Alert management, Postmortems, IAC, SLO/SLI Metrics Design, Capacity Planning} \\
     }}

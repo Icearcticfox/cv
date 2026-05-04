@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "CMU Sans Serif Demi Condensed";
+  font-style: roman;
+  font-weight: 600;
+  src: url("./fonts/cmu-sans-serif-demi-condensed-600-roman.woff2") format("woff2"), url("./fonts/cmu-sans-serif-demi-condensed-600-roman.ttf") format("truetype");
+}
