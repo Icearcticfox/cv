@@ -2,6 +2,38 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "CMU Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/cmu-serif-500-roman.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "CMU Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/cmu-serif-500-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "CMU Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/cmu-serif-700-roman.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "CMU Serif";
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/cmu-serif-700-italic.woff2') format('woff2');
+}
+
 body {
   margin: 0;
   background: #fff;
@@ -58,7 +90,7 @@ hr {
 
 /* About content */
 main {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "CMU Serif", "Times New Roman", Times, serif;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -74,18 +106,18 @@ main .lede {
 }
 
 main h2 {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: "CMU Serif", "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
   letter-spacing: 0.01em;
   margin: 32px 0 8px;
   color: #111;
 }
 
 main h3 {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: "CMU Serif", "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin: 20px 0 6px;
   color: #333;
 }
@@ -103,4 +135,3 @@ main code {
 .layout-prose {
   max-width: 42rem;
 }
-
