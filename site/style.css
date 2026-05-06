@@ -91,8 +91,9 @@ hr {
 /* About content */
 main {
   font-family: "CMU Serif", "Times New Roman", Times, serif;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.7;
+  color: #1a1a1a;
 }
 
 p {
@@ -100,9 +101,9 @@ p {
 }
 
 main .lede {
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  margin-bottom: 28px;
+  font-size: inherit;
+  color: inherit;
+  margin-bottom: 16px;
 }
 
 main h2 {
