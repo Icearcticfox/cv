@@ -100,12 +100,6 @@ p {
   margin: 0 0 16px;
 }
 
-main .lede {
-  font-size: inherit;
-  color: inherit;
-  margin-bottom: 16px;
-}
-
 main h2 {
   font-family: "CMU Serif", "Times New Roman", Times, serif;
   font-size: 1.25rem;
